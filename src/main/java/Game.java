@@ -6,9 +6,9 @@ class Game {
     static Scanner scanInt = new Scanner(System.in);
     static Scanner scanStr = new Scanner(System.in);
 
-    static String [] englishWords = {"queue", "expression", "software", "application", "freeware", "compile", "compress", "hyperlink", "archive", "debug", "issue", "encrypt", "decrypt", "exception", "verify", "disable", "taught", "tough", "though", "thorough", "enable", "thought", "equal", "through", "utility", "throughout", "from scratch", "capability", "request", "gateway"};
+    static String [] englishWords = {"redundant", "expression", "software", "application", "freeware", "compile", "compress", "hyperlink", "archive", "debug", "issue", "encrypt", "decrypt", "exception", "verify", "disable", "taught", "tough", "though", "thorough", "enable", "thought", "equal", "through", "utility", "throughout", "from scratch", "capability", "request", "gateway"};
 
-    static String [] russianWords = {"очередь", "выражение", "програмное обеспечение", "приложение", "бесплатное ПО", "компилировать", "сжимать", "ссылка", "архивировать", "отлаживать", "проблема", "зашифровать", "расшифровывать", "исключение", "проверять", "запрещать", "учил", "жесткий", "хотя", "тщательный", "разрешать", "думал", "равный", "через", "утилита", "по всему", "с нуля", "возможности", "запрос", "шлюз"};
+    static String [] russianWords = {"излишний", "выражение", "програмное обеспечение", "приложение", "бесплатное ПО", "компилировать", "сжимать", "ссылка", "архивировать", "отлаживать", "проблема", "зашифровать", "расшифровывать", "исключение", "проверять", "запрещать", "учил", "жесткий", "хотя", "тщательный", "разрешать", "думал", "равный", "через", "утилита", "по всему", "с нуля", "возможности", "запрос", "шлюз"};
 
     public static void translateToEnglish(String name) {
         int russianLength = russianWords.length;
