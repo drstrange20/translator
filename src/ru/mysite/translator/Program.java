@@ -1,4 +1,4 @@
-package main.java;
+package ru.mysite.translator;
 
 public class Program {
     public static void main(String[] args) {

@@ -1,17 +1,15 @@
-package main.java;
+package ru.mysite.translator;
 
 import java.util.Scanner;
 
 class Game {
+    static final String [] ENGLISH_WORDS = {"redundant", "expression", "software", "application", "freeware", "compile", "compress", "hyperlink", "archive", "debug", "issue", "encrypt", "decrypt", "exception", "verify", "disable", "taught", "tough", "though", "thorough", "enable", "thought", "equal", "through", "utility", "throughout", "from scratch", "capability", "request", "gateway"};
+    static final String [] RUSSIAN_WORDS = {"излишний", "выражение", "програмное обеспечение", "приложение", "бесплатное ПО", "компилировать", "сжимать", "ссылка", "архивировать", "отлаживать", "проблема", "зашифровать", "расшифровывать", "исключение", "проверять", "запрещать", "учил", "жесткий", "хотя", "тщательный", "разрешать", "думал", "равный", "через", "утилита", "по всему", "с нуля", "возможности", "запрос", "шлюз"};
     static Scanner scanInt = new Scanner(System.in);
     static Scanner scanStr = new Scanner(System.in);
 
-    static String [] englishWords = {"redundant", "expression", "software", "application", "freeware", "compile", "compress", "hyperlink", "archive", "debug", "issue", "encrypt", "decrypt", "exception", "verify", "disable", "taught", "tough", "though", "thorough", "enable", "thought", "equal", "through", "utility", "throughout", "from scratch", "capability", "request", "gateway"};
-
-    static String [] russianWords = {"излишний", "выражение", "програмное обеспечение", "приложение", "бесплатное ПО", "компилировать", "сжимать", "ссылка", "архивировать", "отлаживать", "проблема", "зашифровать", "расшифровывать", "исключение", "проверять", "запрещать", "учил", "жесткий", "хотя", "тщательный", "разрешать", "думал", "равный", "через", "утилита", "по всему", "с нуля", "возможности", "запрос", "шлюз"};
-
     public static void translateToEnglish(String name) {
-        int russianLength = russianWords.length;
+        int russianLength = RUSSIAN_WORDS.length;
         int k = 1;
 
         System.out.println("\nСколько слов Вы хотите перевести?\nВведите число от 1 до " +russianLength + ":");
@@ -21,25 +19,25 @@ class Game {
         for (int i = 0; i < russianLength; i++) {
             int index = (int) (Math.random()*russianLength);
 
-            String rus = russianWords[i];
-            russianWords[i] = russianWords[index];
-            russianWords[index] = rus;
+            String rus = RUSSIAN_WORDS[i];
+            RUSSIAN_WORDS[i] = RUSSIAN_WORDS[index];
+            RUSSIAN_WORDS[index] = rus;
 
-            String eng = englishWords[i];
-            englishWords[i] = englishWords[index];
-            englishWords[index] = eng;
+            String eng = ENGLISH_WORDS[i];
+            ENGLISH_WORDS[i] = ENGLISH_WORDS[index];
+            ENGLISH_WORDS[index] = eng;
         }
 
         for (int i = 0; i < numberOfWords; i++){
 
-            System.out.println("\n" + k + ". " + russianWords[i]);
+            System.out.println("\n" + k + ". " + RUSSIAN_WORDS[i]);
 
             String translate = scanStr.nextLine();
 
-            if (translate.equalsIgnoreCase(englishWords[i])){
+            if (translate.equalsIgnoreCase(ENGLISH_WORDS[i])){
                 System.out.println("Верно!");
             } else {
-                System.out.println("К сожалению, Вы ошиблись!\nПравильный ответ: " + englishWords[i]);
+                System.out.println("К сожалению, Вы ошиблись!\nПравильный ответ: " + ENGLISH_WORDS[i]);
             }
             k++;
         }
@@ -47,7 +45,7 @@ class Game {
     }
 
     public static void translateToRussian(String name) {
-        int englishLength = englishWords.length;
+        int englishLength = ENGLISH_WORDS.length;
         int k = 1;
 
         System.out.println("\nCколько слов Вы хотите перевести?\nВведите число от 1 до " +englishLength + ":");
@@ -57,26 +55,26 @@ class Game {
         for (int i = 0; i < englishLength; i++) {
             int index = (int) (Math.random()*englishLength);
 
-            String eng = englishWords[i];
-            englishWords[i] = englishWords[index];
-            englishWords[index] = eng;
+            String eng = ENGLISH_WORDS[i];
+            ENGLISH_WORDS[i] = ENGLISH_WORDS[index];
+            ENGLISH_WORDS[index] = eng;
 
-            String rus = russianWords[i];
-            russianWords[i] = russianWords[index];
-            russianWords[index] = rus;
+            String rus = RUSSIAN_WORDS[i];
+            RUSSIAN_WORDS[i] = RUSSIAN_WORDS[index];
+            RUSSIAN_WORDS[index] = rus;
 
         }
 
         for (int i = 0; i < numberOfWords; i++){
 
-            System.out.println("\n" + k + ". " + englishWords[i]);
+            System.out.println("\n" + k + ". " + ENGLISH_WORDS[i]);
 
             String translate = scanStr.nextLine();
 
-            if (translate.equalsIgnoreCase(russianWords[i])){
+            if (translate.equalsIgnoreCase(RUSSIAN_WORDS[i])){
                 System.out.println("Верно!");
             } else {
-                System.out.println("К сожалению, Вы ошиблись!\nПравильный ответ: " + russianWords[i]);
+                System.out.println("К сожалению, Вы ошиблись!\nПравильный ответ: " + RUSSIAN_WORDS[i]);
             }
             k++;
         }
