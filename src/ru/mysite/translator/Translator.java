@@ -2,17 +2,15 @@ package ru.mysite.translator;
 
 import java.util.Scanner;
 
-class Game {
-    static final String[] ENGLISH_WORDS = {"redundant", "hyperlink", "archive", "debug", "issue", "encrypt", "decrypt", "exception", "verify", "disable", "enable", "equal", "from scratch", "capability", "request", "gateway"};
-    static final String[] RUSSIAN_WORDS = {"излишний", "ссылка", "архивировать", "отлаживать", "проблема", "зашифровывать", "расшифровывать", "исключение", "проверять", "запрещать", "разрешать", "равный", "с нуля", "возможности", "запрос", "шлюз"};
-    static Scanner scannerInteger = new Scanner(System.in);
+public class Translator {
+
     static Scanner scannerString = new Scanner(System.in);
     static int numberOfWords;
-    static String name;
 
     public static void translate(String[] firstArray, String[] secondArray) {
-
         int counter = 1;
+        int rightAnswers = 0;
+        int wrongAnswers = 0;
 
         System.out.println("\nСколько слов Вы хотите перевести?\nВведите число от 1 до " + firstArray.length + ":");
         numberOfWords = chooseHowMuchWordsToTranslate(firstArray.length);
@@ -37,16 +35,19 @@ class Game {
 
             if (translate.equalsIgnoreCase(secondArray[i])) {
                 System.out.println("Верно!");
+                rightAnswers++;
             } else {
                 System.out.println("К сожалению, Вы ошиблись!\nПравильный ответ: " + secondArray[i]);
+                wrongAnswers++;
             }
             counter++;
         }
+        System.out.println("Количество правильных ответов: " + rightAnswers + "\nКоличество неправильных ответов: " + wrongAnswers + ".");
         playAgain();
     }
 
     static void playAgain() {
-        System.out.println("\nХотите сыграть еще раз?\nВведите \"да\" или \"нет\":");
+        System.out.println("\nХотите сыграть еще раз?\nНапишите: \"да\" или \"нет\":");
 
         String answer = scannerString.nextLine();
         while (!answer.equalsIgnoreCase("да") && !answer.equalsIgnoreCase("нет")) {
@@ -54,21 +55,23 @@ class Game {
             answer = scannerString.nextLine();
         }
         if (answer.equalsIgnoreCase("нет")) {
-            System.out.println("\nСпасибо за игру, " + name + "!\nВозвращайтесь скорее! Будем тренировать Ваш Английский!");
+            System.out.println("\nСпасибо за игру!\nВозвращайтесь скорее! Будем тренировать Ваш Английский!");
         } else {
-            chooseLanguage(name);
+            chooseLanguage();
         }
     }
 
-    static void chooseLanguage(String name) {
-        System.out.println("\n" + name + ", на какой язык хотите переводить?\nНапишите \"на русский\" или \"на английский\":");
+    static void chooseLanguage() {
+        final String[] ENGLISH_WORDS = {"redundant", "variable", "property", "versatile", "maintenance", "explanation", "response", "particular", "precise", "fiddle"};
+        final String[] RUSSIAN_WORDS = {"излишний", "переменная", "свойство", "многофункциональный", "поддержка", "объяснение", "ответ", "частный", "точный", "играть"};
 
+        System.out.println("\nНа какой язык хотите переводить на русский или на английский?\nНапишите \"рус\" или \"eng\"");
         String answer = scannerString.nextLine();
-        while (!answer.equalsIgnoreCase("на русский") && !answer.equalsIgnoreCase("на английский")) {
+        while (!answer.equalsIgnoreCase("рус") && !answer.equalsIgnoreCase("eng")) {
             System.out.println("\nНекорректный ответ.");
             answer = scannerString.nextLine();
         }
-        if (answer.equalsIgnoreCase("на английский")) {
+        if (answer.equalsIgnoreCase("eng")) {
             translate(RUSSIAN_WORDS, ENGLISH_WORDS);
         } else {
             translate(ENGLISH_WORDS, RUSSIAN_WORDS);
@@ -76,6 +79,7 @@ class Game {
     }
 
     static int chooseHowMuchWordsToTranslate(int englishLength) {
+        Scanner scannerInteger = new Scanner(System.in);
         while (true) {
             try {
                 numberOfWords = Integer.parseInt(scannerInteger.nextLine().trim());
@@ -91,15 +95,15 @@ class Game {
         return numberOfWords;
     }
 
-    static String verifyUserName() {
-        name = scannerString.nextLine();
-
-        while (name == null || name.trim().isEmpty()) {
-
-            System.out.println("Вы ввели некорректное имя");
-
-            name = scannerString.nextLine();
-        }
-        return name;
-    }
+    //static String verifyUserName() {
+//        name = scannerString.nextLine();
+//
+//        while (name == null || name.trim().isEmpty()) {
+//
+//            System.out.println("Вы ввели некорректное имя");
+//
+//            name = scannerString.nextLine();
+//        }
+//        return name;
+//    }
 }
